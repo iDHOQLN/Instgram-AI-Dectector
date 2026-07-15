@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════════
+   Instagram AI Detector — Config-level Dark Theme Stylesheet
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Root Variables ────────────────────────────────────────────── */
+:root {
+  --pink:       #E91E8C;
+  --blue:       #3D5AF1;
+  --cyan:       #00BCD4;
+  --green:      #43A047;
+  --red:        #E53935;
+  --amber:      #FB8C00;
+  --bg:         #0E1117;
+  --card:       #1A1D27;
+  --border:     #2A2D3E;
+  --text:       #FFFFFF;
+  --muted:      #888888;
+}
+
+/* ── Global Reset ──────────────────────────────────────────────── */
+html, body, .stApp {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* ── Hide Streamlit Defaults ───────────────────────────────────── */
+#MainMenu, footer, header { visibility: hidden; }
+.stDeployButton { display: none; }
+
+/* ── Sidebar ────────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #12141E 0%, #0E1117 100%) !important;
+  border-right: 1px solid var(--border) !important;
+}
+[data-testid="stSidebar"] .stSelectbox label,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span {
+  color: #cccccc !important;
+}
+
+/* ── Navigation Links ──────────────────────────────────────────── */
+[data-testid="stSidebarNav"] a {
+  color: #cccccc !important;
+  border-radius: 10px !important;
+  margin: 2px 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.2s ease !important;
+}
+[data-testid="stSidebarNav"] a:hover,
+[data-testid="stSidebarNav"] a[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(233,30,140,0.2), rgba(61,90,241,0.1)) !important;
+  color: var(--pink) !important;
+  border-left: 3px solid var(--pink) !important;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.stButton > button {
+  background: linear-gradient(135deg, var(--pink), var(--blue)) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 10px 24px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 20px rgba(233,30,140,0.3) !important;
+}
+.stButton > button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(233,30,140,0.5) !important;
+}
+.stButton > button:active {
+  transform: translateY(0) !important;
+}
+
+/* ── Form Inputs ────────────────────────────────────────────────── */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input,
+.stSelectbox > div > div > div,
+.stSlider > div {
+  background-color: #1A1D27 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: white !important;
+  transition: border-color 0.2s ease !important;
+}
+.stTextInput > div > div > input:focus,
+.stNumberInput > div > div > input:focus {
+  border-color: var(--pink) !important;
+  box-shadow: 0 0 0 2px rgba(233,30,140,0.2) !important;
+}
+
+/* ── Slider ─────────────────────────────────────────────────────── */
+[data-testid="stSlider"] div[role="slider"] {
+  background: var(--pink) !important;
+}
+
+/* ── Metrics ────────────────────────────────────────────────────── */
+[data-testid="stMetric"] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+}
+[data-testid="stMetricValue"] {
+  color: var(--pink) !important;
+  font-weight: 800 !important;
+  font-size: 2rem !important;
+}
+[data-testid="stMetricLabel"] {
+  color: var(--muted) !important;
+}
+
+/* ── DataFrames ─────────────────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+  background: var(--card) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Expander ───────────────────────────────────────────────────── */
+details summary {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--pink) !important;
+  padding: 10px 16px !important;
+}
+details[open] summary {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* ── Alert / Info boxes ─────────────────────────────────────────── */
+.stAlert {
+  background: var(--card) !important;
+  border-radius: 12px !important;
+  border-left: 4px solid var(--pink) !important;
+  color: var(--text) !important;
+}
+
+/* ── File Uploader ──────────────────────────────────────────────── */
+[data-testid="stFileUploader"] {
+  background: var(--card) !important;
+  border: 2px dashed var(--border) !important;
+  border-radius: 16px !important;
+  transition: border-color 0.3s ease !important;
+}
+[data-testid="stFileUploader"]:hover {
+  border-color: var(--pink) !important;
+}
+
+/* ── Tab Components ─────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+  background: var(--card) !important;
+  border-radius: 12px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+}
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  border-radius: 8px !important;
+  color: var(--muted) !important;
+  transition: all 0.2s ease !important;
+}
+.stTabs [aria-selected="true"] {
+  background: linear-gradient(135deg, var(--pink), var(--blue)) !important;
+  color: white !important;
+}
+
+/* ── Download Button ────────────────────────────────────────────── */
+.stDownloadButton > button {
+  background: linear-gradient(135deg, var(--green), var(--cyan)) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(67,160,71,0.3) !important;
+  transition: all 0.3s ease !important;
+}
+.stDownloadButton > button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(67,160,71,0.5) !important;
+}
+
+/* ── Progress Bar ───────────────────────────────────────────────── */
+[data-testid="stProgress"] > div > div {
+  background: linear-gradient(90deg, var(--pink), var(--blue)) !important;
+  border-radius: 4px !important;
+}
+
+/* ── Horizontal Rule ────────────────────────────────────────────── */
+hr {
+  border-color: var(--border) !important;
+  margin: 20px 0 !important;
+}
+
+/* ── Section Headings ───────────────────────────────────────────── */
+h1 { font-weight: 900 !important; }
+h2 { color: #EEEEEE !important; font-weight: 800 !important; }
+h3 { color: #CCCCCC !important; font-weight: 700 !important; }
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--pink), var(--blue));
+  border-radius: 3px;
+}
+
+/* ── Card Hover Effect ──────────────────────────────────────────── */
+.hover-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.hover-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(233,30,140,0.2) !important;
+}
+
+/* ── Pulse animation for alerts ─────────────────────────────────── */
+@keyframes pulse-pink {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(233,30,140,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(233,30,140,0.0); }
+}
+.pulse { animation: pulse-pink 2s infinite; }
+
+/* ── Spinner color override ─────────────────────────────────────── */
+.stSpinner > div {
+  border-top-color: var(--pink) !important;
+}

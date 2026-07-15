@@ -1,0 +1,9 @@
+timestamp,module,input_summary,prediction,confidence,username
+2026-07-14 19:17:42,Fake Image,images 3.jpg (335x597),Edited,99.3,admin
+2026-07-14 19:18:19,Fake Image,Ai 3.jpg (591x338),AI Generated,98.85,admin
+2026-07-14 19:19:10,Bot Detection,PostFreq:2.0 | Followers:850 | Following:3200,Human,99.5,admin
+2026-07-14 19:19:40,Bot Detection,PostFreq:2.0 | Followers:3000 | Following:3200,Human,80.75,admin
+2026-07-14 19:19:49,Bot Detection,PostFreq:2.0 | Followers:3000 | Following:3200,Human,80.75,admin
+2026-07-14 19:19:53,Bot Detection,PostFreq:2.0 | Followers:3000 | Following:3200,Human,80.75,admin
+2026-07-14 19:21:19,Fake Account,@sample | Followers:1200 | Following:350 | Posts:45,Real,99.3,admin
+2026-07-14 19:21:46,Fake Account,@sample | Followers:1250 | Following:35000 | Posts:2,Fake,100.0,admin
