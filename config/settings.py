@@ -39,6 +39,6 @@ def sidebar_branding():
     st.sidebar.markdown("""
     <div style='text-align:center; padding: 10px 0 20px 0;'>
         <h2 style='color:#E91E8C; font-size:1.4rem; margin:0;'>🔍 Instagram AI</h2>
-        <p style='color:#aaa; font-size:0.75rem; margin:4px 0 0 0;'>Fake Detection System v1.0</p>
+        <p style='color:#aaa; font-size:0.75rem; margin:4px 0 0 0;'>Fake Detection System v1.0.1</p>
     </div>
     """, unsafe_allow_html=True)

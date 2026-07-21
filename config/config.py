@@ -48,7 +48,7 @@ IMAGE_THRESHOLD = 0.50
 # ─────────────────────────────────────────────
 APP_TITLE = "Instagram AI Detector"
 APP_ICON = "🔍"
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 # ─────────────────────────────────────────────
 # AUTH
