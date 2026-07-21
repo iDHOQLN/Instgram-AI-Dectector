@@ -90,6 +90,36 @@ st.markdown("""
 
 st.markdown("---")
 
+# ── Clickable Card CSS ─────────────────────────────────────────────────────────
+st.markdown("""
+<style>
+/* Make card-nav buttons transparent — card HTML is the visible element */
+div[data-testid="stButton"].card-btn > button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: -8px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    font-size: 0 !important;   /* hide label text */
+    height: 36px !important;
+    opacity: 0.01 !important;  /* nearly invisible overlay */
+}
+/* Elevate card on hover */
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(255,255,255,0.10) !important;
+}
+.secondary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.07) !important;
+}
+.module-card, .secondary-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ── Navigation Cards ───────────────────────────────────────────────────────────
 st.markdown("### 🗂 Navigate to a Module")
 
@@ -106,39 +136,48 @@ modules = [
      "#43A047", "pages/Dashboard.py"),
 ]
 
-for col, (icon, title, desc, color, _) in zip([col1, col2, col3, col4], modules):
+for col, (icon, title, desc, color, page) in zip([col1, col2, col3, col4], modules):
     with col:
         st.markdown(f"""
-        <div style='background:linear-gradient(135deg,#1A1D27,#12141E);
-                    border:1px solid {color}44; border-radius:20px; padding:24px 16px;
-                    text-align:center; box-shadow:0 4px 20px {color}11;
-                    transition:all 0.3s ease; cursor:pointer; min-height:180px;'>
+        <div class='module-card' style='
+            background:linear-gradient(135deg,#1A1D27,#12141E);
+            border:2px solid {color}55; border-radius:20px; padding:24px 16px;
+            text-align:center; box-shadow:0 4px 20px {color}22;
+            min-height:180px; cursor:pointer;'>
             <div style='font-size:2.8rem; margin-bottom:12px;'>{icon}</div>
             <div style='color:{color}; font-weight:800; font-size:1rem; margin-bottom:8px;'>{title}</div>
-            <div style='color:#777; font-size:0.82rem; line-height:1.4;'>{desc}</div>
+            <div style='color:#888; font-size:0.82rem; line-height:1.4;'>{desc}</div>
+            <div style='margin-top:14px; display:inline-block; padding:5px 14px;
+                        border:1px solid {color}88; border-radius:20px;
+                        color:{color}; font-size:0.75rem; font-weight:600;'>Open →</div>
         </div>
         """, unsafe_allow_html=True)
+        if st.button(f"Open {title}", key=f"btn_{page}", use_container_width=True):
+            st.switch_page(page)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
 # ── Secondary links row ────────────────────────────────────────────────────────
 c1, c2, c3 = st.columns(3)
 secondary = [
-    ("📜", "Prediction History", "View and manage all past predictions", "#7B1FA2"),
-    ("📥", "Reports", "Download CSV and PDF reports", "#FB8C00"),
-    ("ℹ", "About", "Project info and technical details", "#00BCD4"),
+    ("📜", "Prediction History", "View and manage all past predictions", "#7B1FA2", "pages/History.py"),
+    ("📥", "Reports",           "Download CSV and PDF reports",          "#FB8C00", "pages/Dashboard.py"),
+    ("ℹ",  "About",             "Project info and technical details",    "#00BCD4", "pages/About.py"),
 ]
-for col, (icon, title, desc, color) in zip([c1, c2, c3], secondary):
+for col, (icon, title, desc, color, page) in zip([c1, c2, c3], secondary):
     with col:
         st.markdown(f"""
-        <div style='background:linear-gradient(135deg,#1A1D27,#12141E);
-                    border:1px solid {color}44; border-radius:16px; padding:18px;
-                    text-align:center; box-shadow:0 2px 10px {color}11;'>
+        <div class='secondary-card' style='
+            background:linear-gradient(135deg,#1A1D27,#12141E);
+            border:1px solid {color}55; border-radius:16px; padding:18px;
+            text-align:center; box-shadow:0 2px 10px {color}22; cursor:pointer;'>
             <div style='font-size:2rem; margin-bottom:8px;'>{icon}</div>
             <div style='color:{color}; font-weight:700; font-size:0.95rem; margin-bottom:6px;'>{title}</div>
-            <div style='color:#777; font-size:0.8rem;'>{desc}</div>
+            <div style='color:#888; font-size:0.8rem;'>{desc}</div>
         </div>
         """, unsafe_allow_html=True)
+        if st.button(f"Go to {title}", key=f"btn_sec_{page}", use_container_width=True):
+            st.switch_page(page)
 
 st.markdown("---")
 
@@ -163,6 +202,6 @@ with st.expander("📖 How It Works", expanded=False):
 
 st.markdown(f"""
 <div style='text-align:center; margin-top:30px; color:#444; font-size:0.8rem;'>
-    Instagram AI Detector v{VERSION} | B.Tech AI & Data Science Final Year Project
+    Instagram AI Detector v{VERSION}
 </div>
 """, unsafe_allow_html=True)
