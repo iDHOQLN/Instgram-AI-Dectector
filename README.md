@@ -139,10 +139,10 @@ Instagram_AI_Detector/
 
 ## 👨‍💻 Developer
 
-- **Project:** B.Tech Final Year Project
+- **Project:** Instgram Fake Account Detection
 - **Domain:** Artificial Intelligence & Data Science
 - **Version:** 1.0.0
 
 ---
 
-*Instagram AI Detector — Keeping Social Media Safe with AI*
+
