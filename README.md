@@ -137,11 +137,7 @@ Instagram_AI_Detector/
 
 ---
 
-## 👨‍💻 Developer
 
-- **Project:** Instgram Fake Account Detection
-- **Domain:** Artificial Intelligence & Data Science
-- **Version:** 1.0.0
 
 ---
 
